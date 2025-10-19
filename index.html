@@ -1,16 +1,30 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Finn Van Hullebusch</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>body{font-family:system-ui;margin:0;display:grid;place-items:center;height:100vh}</style>
-  </head>
-  <body>
-    <main>
-      <h1>Hi, I’m Finn 👋</h1>
-      <p>Portfolio coming soon.</p>
-      <p><a href="https://cv.finnvanhullebusch.me">CV</a> • <a href="https://dev.finnvanhullebusch.me">Dev</a></p>
-    </main>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Finn Van Hullebusch</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Framer Motion (via CDN) -->
+  <script type="module">
+    import { animate, stagger } from "https://cdn.skypack.dev/motion@10.16.2"
+    window.addEventListener("DOMContentLoaded", () => {
+      animate(".stagger-in", { opacity: [0, 1], y: [12, 0] }, { duration: 0.5, delay: stagger(0.08) })
+    })
+  </script>
+</head>
+<body class="min-h-screen bg-white text-neutral-900 antialiased">
+  <main class="max-w-3xl mx-auto px-6 py-24">
+    <h1 class="stagger-in text-4xl sm:text-5xl font-extrabold tracking-tight">Hi, I’m Finn <span class="inline-block">👋</span></h1>
+    <p class="stagger-in mt-4 text-lg text-neutral-600">
+      Social-tech creator from Belgium. I build helpful tools and youth-centered projects.
+    </p>
+    <nav class="stagger-in mt-6 flex gap-6">
+      <a class="underline underline-offset-4 hover:no-underline" href="https://cv.finnvanhullebusch.me">CV</a>
+      <a class="underline underline-offset-4 hover:no-underline" href="https://dev.finnvanhullebusch.me">Dev</a>
+      <a class="underline underline-offset-4 hover:no-underline" href="/projects.html">Projects</a>
+    </nav>
+  </main>
+</body>
 </html>
