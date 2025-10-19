@@ -1,48 +1,147 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta name="description" content="Portfolio of Finn Van Hullebusch — projects, CV, and contact." />
-  <link rel="stylesheet" href="assets/css/output.css">
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Finn Van Hullebusch</title>
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Framer Motion (via CDN) -->
-  <script type="module">
-    import { animate, stagger } from "https://cdn.skypack.dev/motion@10.16.2"
-    window.addEventListener("DOMContentLoaded", () => {
-      animate(".stagger-in", { opacity: [0, 1], y: [12, 0] }, { duration: 0.5, delay: stagger(0.08) })
-    })
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Finn Van Hullebusch — Developer</title>
+  <meta name="description" content="Tech developer focused on web apps, automation, and creative tooling." />
+  <link rel="stylesheet" href="assets/css/output.css">
+  <link rel="icon" href="assets/images/favicon.png">
+  <meta property="og:title" content="Finn Van Hullebusch — Developer">
+  <meta property="og:description" content="Projects, experience, and contact." />
+  <meta property="og:type" content="website">
+  <script>
+    // Dark mode toggle (persists)
+    const saved = localStorage.getItem('theme')
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    }
   </script>
 </head>
-<body class="min-h-screen bg-white text-neutral-900 antialiased selection:bg-black selection:text-white">
-  <main class="max-w-3xl mx-auto px-6 py-24">
-    <div class="relative overflow-hidden rounded-3xl">
-      <div class="absolute inset-0 -z-10 bg-[radial-gradient(600px_300px_at_10%_10%,rgba(0,0,0,0.06),transparent)]"></div>
-      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Hi, I’m Finn <span class="inline-block">👋</span></h1>
-      <p class="mt-4 text-lg text-neutral-600">
-        Social-tech creator from Belgium. I build helpful tools and youth projects.
+<body class="bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100 antialiased">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-neutral-900/60 border-b border-neutral-200/60 dark:border-neutral-800">
+    <nav class="mx-auto max-w-6xl px-6 h-14 flex items-center justify-between">
+      <a href="/" class="font-semibold tracking-tight">finn<span class="text-neutral-500">.dev</span></a>
+      <div class="flex items-center gap-6 text-sm">
+        <a class="hover:opacity-80" href="#projects">Projects</a>
+        <a class="hover:opacity-80" href="#experience">Experience</a>
+        <a class="hover:opacity-80" href="#contact">Contact</a>
+        <button id="themeBtn" class="rounded-lg border px-2 py-1 text-xs border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800">Toggle theme</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-6 py-16 sm:py-24">
+    <div class="max-w-3xl">
+      <h1 class="text-4xl/tight sm:text-6xl/tight font-extrabold tracking-tight">
+        Hi, I’m Finn <span class="inline-block">👋</span>
+      </h1>
+      <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-300">
+        Tech developer from Belgium. I build fast web apps, automation tools, and clean UIs. 
+        Currently exploring Next.js, Tailwind, and real-time systems.
       </p>
-      <nav class="mt-6 flex gap-6">
-        <a class="underline underline-offset-4 hover:no-underline" href="https://cv.finnvanhullebusch.me">CV</a>
-        <a class="underline underline-offset-4 hover:no-underline" href="https://dev.finnvanhullebusch.me">Dev</a>
-        <a class="underline underline-offset-4 hover:no-underline" href="/projects.html">Projects</a>
-      </nav>
+      <div class="mt-6 flex gap-3">
+        <a href="https://cv.finnvanhullebusch.me" class="inline-flex items-center rounded-xl bg-black text-white dark:bg-white dark:text-black px-4 py-2 text-sm font-medium hover:opacity-90">View CV</a>
+        <a href="#contact" class="inline-flex items-center rounded-xl border px-4 py-2 text-sm font-medium border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800">Contact</a>
+        <a href="https://github.com/FinnVHH" class="ml-2 text-sm hover:underline">GitHub →</a>
+      </div>
+      <!-- Skills -->
+      <ul class="mt-8 flex flex-wrap gap-2 text-xs">
+        <li class="rounded-full border px-3 py-1 border-neutral-300 dark:border-neutral-700">TypeScript</li>
+        <li class="rounded-full border px-3 py-1 border-neutral-300 dark:border-neutral-700">Next.js</li>
+        <li class="rounded-full border px-3 py-1 border-neutral-300 dark:border-neutral-700">Tailwind</li>
+        <li class="rounded-full border px-3 py-1 border-neutral-300 dark:border-neutral-700">Node / Mineflayer</li>
+        <li class="rounded-full border px-3 py-1 border-neutral-300 dark:border-neutral-700">Python</li>
+        <li class="rounded-full border px-3 py-1 border-neutral-300 dark:border-neutral-700">Vercel / GitHub Pages</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="mx-auto max-w-6xl px-6">
+    <div class="flex items-end justify-between">
+      <h2 class="text-2xl font-bold">Selected projects</h2>
+      <a href="projects.html" class="text-sm hover:underline">All projects →</a>
     </div>
 
-    <section class="mt-16 grid sm:grid-cols-2 gap-6">
-      <a href="#" class="group rounded-2xl border p-5 transition hover:-translate-y-0.5">
-        <h3 class="font-semibold">Featured Project</h3>
-        <p class="mt-1 text-sm text-neutral-600">One-liner about what it does and who it helps.</p>
-        <span class="mt-3 inline-block text-sm group-hover:translate-x-0.5 transition">View →</span>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2">
+      <!-- Card -->
+      <a href="#" class="group rounded-2xl border p-5 transition hover:-translate-y-0.5 border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/60">
+        <div class="flex items-center justify-between">
+          <h3 class="font-semibold">AFK Client Manager</h3>
+          <span class="text-xs rounded-full border px-2 py-0.5 border-neutral-300 dark:border-neutral-700">Node</span>
+        </div>
+        <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300">Multi-client Mineflayer dashboard with Microsoft auth, status tracking, and per-client controls.</p>
+        <p class="mt-3 text-sm text-neutral-500 group-hover:translate-x-0.5 transition">View case →</p>
       </a>
-      <a href="#" class="group rounded-2xl border p-5 transition hover:-translate-y-0.5">
-        <h3 class="font-semibold">Another Project</h3>
-        <p class="mt-1 text-sm text-neutral-600">Short, clear description.</p>
-        <span class="mt-3 inline-block text-sm group-hover:translate-x-0.5 transition">View →</span>
+
+      <a href="#" class="group rounded-2xl border p-5 transition hover:-translate-y-0.5 border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/60">
+        <div class="flex items-center justify-between">
+          <h3 class="font-semibold">Streaming Toolkit</h3>
+          <span class="text-xs rounded-full border px-2 py-0.5 border-neutral-300 dark:border-neutral-700">Next.js</span>
+        </div>
+        <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300">OBS scene switcher + media triggers with a South Park themed UI.</p>
+        <p class="mt-3 text-sm text-neutral-500 group-hover:translate-x-0.5 transition">View case →</p>
       </a>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="mx-auto max-w-6xl px-6 mt-16">
+    <h2 class="text-2xl font-bold">Experience</h2>
+    <ol class="mt-6 space-y-6">
+      <li class="rounded-2xl border p-5 border-neutral-200 dark:border-neutral-800">
+        <div class="flex items-center justify-between">
+          <div class="font-semibold">Kadans Jeugdcentrum — Tech & Youth Projects</div>
+          <div class="text-xs text-neutral-500">2024–now</div>
+        </div>
+        <ul class="mt-2 list-disc pl-5 text-sm text-neutral-600 dark:text-neutral-300">
+          <li>Built event tooling and simple web apps to support youth activities.</li>
+          <li>Designed clear UIs; automated repetitive workflows.</li>
+        </ul>
+      </li>
+      <li class="rounded-2xl border p-5 border-neutral-200 dark:border-neutral-800">
+        <div class="flex items-center justify-between">
+          <div class="font-semibold">Freelance — Web & Automation</div>
+          <div class="text-xs text-neutral-500">2023–now</div>
+        </div>
+        <ul class="mt-2 list-disc pl-5 text-sm text-neutral-600 dark:text-neutral-300">
+          <li>Next.js/Tailwind sites, dashboards, and Discord/Telegram integrations.</li>
+          <li>Deployed to Vercel and GitHub Pages with CI pipelines.</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="mx-auto max-w-6xl px-6 mt-16 mb-24">
+    <div class="rounded-2xl border p-6 sm:p-8 border-neutral-200 dark:border-neutral-800">
+      <h2 class="text-2xl font-bold">Let’s build something</h2>
+      <p class="mt-2 text-neutral-600 dark:text-neutral-300">Available for internships, freelance projects, and collaborations.</p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a href="mailto:hello@finnvanhullebusch.me" class="rounded-xl bg-black text-white dark:bg-white dark:text-black px-4 py-2 text-sm font-medium hover:opacity-90">Email me</a>
+        <a href="https://www.linkedin.com/" class="rounded-xl border px-4 py-2 text-sm font-medium border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800">LinkedIn</a>
+        <a href="https://github.com/FinnVHH" class="rounded-xl border px-4 py-2 text-sm font-medium border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-neutral-200 dark:border-neutral-800">
+    <div class="mx-auto max-w-6xl px-6 h-14 text-sm flex items-center justify-between">
+      <span>© <span id="y"></span> Finn Van Hullebusch</span>
+      <a class="opacity-80 hover:opacity-100" href="https://dev.finnvanhullebusch.me">Dev</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear()
+    document.getElementById('themeBtn').onclick = () => {
+      const c = document.documentElement.classList
+      c.toggle('dark')
+      localStorage.setItem('theme', c.contains('dark') ? 'dark' : 'light')
+    }
+  </script>
 </body>
 </html>
