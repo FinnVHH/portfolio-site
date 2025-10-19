@@ -5,48 +5,72 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Finn Van Hullebusch — Developer</title>
   <meta name="description" content="Tech developer focused on web apps, automation, and creative tooling." />
-  <link rel="stylesheet" href="assets/css/output.css">
-  <link rel="icon" href="assets/images/favicon.png">
+  <meta name="author" content="Finn Van Hullebusch" />
+  <meta name="keywords" content="Finn Van Hullebusch, web developer, Next.js, Tailwind, Vercel, automation, youth work, Belgium" />
+
+  <!-- SEO / Social -->
   <meta property="og:title" content="Finn Van Hullebusch — Developer">
-  <meta property="og:description" content="Projects, experience, and contact." />
+  <meta property="og:description" content="Projects, experience, and contact.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/images/og.png"> <!-- add this image -->
+
+  <!-- Icons -->
+  <link rel="icon" href="/assets/images/favicon.png">
+
+  <!-- Font (faster with preconnect) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    /* Prevent anchors from hiding under sticky header */
+    :target { scroll-margin-top: 84px; }
+  </style>
+
+  <!-- Tailwind build output -->
+  <link rel="stylesheet" href="assets/css/output.css">
+
   <script>
-    // Dark mode toggle (persists)
-    const saved = localStorage.getItem('theme')
+    // Dark mode toggle (persist across visits)
+    const saved = localStorage.getItem('theme');
     if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark')
+      document.documentElement.classList.add('dark');
     }
   </script>
 </head>
 <body class="bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100 antialiased">
+  <!-- Soft background glow -->
+  <div class="fixed inset-0 -z-10 bg-[radial-gradient(800px_circle_at_50%_0%,rgba(0,0,0,0.04),transparent)] dark:bg-[radial-gradient(800px_circle_at_50%_0%,rgba(255,255,255,0.04),transparent)]"></div>
+
   <!-- Navbar -->
   <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-neutral-900/60 border-b border-neutral-200/60 dark:border-neutral-800">
-    <nav class="mx-auto max-w-6xl px-6 h-14 flex items-center justify-between">
+    <nav aria-label="Primary" class="mx-auto max-w-6xl px-6 h-14 flex items-center justify-between">
       <a href="/" class="font-semibold tracking-tight">finn<span class="text-neutral-500">.dev</span></a>
       <div class="flex items-center gap-6 text-sm">
         <a class="hover:opacity-80" href="#projects">Projects</a>
         <a class="hover:opacity-80" href="#experience">Experience</a>
         <a class="hover:opacity-80" href="#contact">Contact</a>
-        <button id="themeBtn" class="rounded-lg border px-2 py-1 text-xs border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800">Toggle theme</button>
+        <button id="themeBtn" aria-label="Toggle dark mode" class="rounded-lg border px-2 py-1 text-xs border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800">Toggle theme</button>
       </div>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section class="mx-auto max-w-6xl px-6 py-16 sm:py-24">
+  <section class="mx-auto max-w-6xl px-6 pt-28 sm:pt-36 pb-20">
     <div class="max-w-3xl">
       <h1 class="text-4xl/tight sm:text-6xl/tight font-extrabold tracking-tight">
         Hi, I’m Finn <span class="inline-block">👋</span>
       </h1>
       <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-300">
-        Tech developer from Belgium. I build fast web apps, automation tools, and clean UIs. 
+        Tech developer from Belgium. I build fast web apps, automation tools, and clean UIs.
         Currently exploring Next.js, Tailwind, and real-time systems.
       </p>
-      <div class="mt-6 flex gap-3">
+      <div class="mt-6 flex flex-wrap gap-3">
         <a href="https://cv.finnvanhullebusch.me" class="inline-flex items-center rounded-xl bg-black text-white dark:bg-white dark:text-black px-4 py-2 text-sm font-medium hover:opacity-90">View CV</a>
         <a href="#contact" class="inline-flex items-center rounded-xl border px-4 py-2 text-sm font-medium border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800">Contact</a>
         <a href="https://github.com/FinnVHH" class="ml-2 text-sm hover:underline">GitHub →</a>
       </div>
+
       <!-- Skills -->
       <ul class="mt-8 flex flex-wrap gap-2 text-xs">
         <li class="rounded-full border px-3 py-1 border-neutral-300 dark:border-neutral-700">TypeScript</li>
@@ -60,7 +84,7 @@
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="mx-auto max-w-6xl px-6">
+  <section id="projects" class="mx-auto max-w-6xl px-6 mt-20">
     <div class="flex items-end justify-between">
       <h2 class="text-2xl font-bold">Selected projects</h2>
       <a href="projects.html" class="text-sm hover:underline">All projects →</a>
@@ -68,28 +92,32 @@
 
     <div class="mt-6 grid gap-6 sm:grid-cols-2">
       <!-- Card -->
-      <a href="#" class="group rounded-2xl border p-5 transition hover:-translate-y-0.5 border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/60">
+      <a href="#" class="group rounded-2xl border p-5 transition hover:-translate-y-1 hover:shadow-md hover:shadow-black/5 dark:hover:shadow-white/5 border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/60">
         <div class="flex items-center justify-between">
           <h3 class="font-semibold">AFK Client Manager</h3>
           <span class="text-xs rounded-full border px-2 py-0.5 border-neutral-300 dark:border-neutral-700">Node</span>
         </div>
-        <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300">Multi-client Mineflayer dashboard with Microsoft auth, status tracking, and per-client controls.</p>
+        <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300">
+          Multi-client Mineflayer dashboard with Microsoft auth, status tracking, and per-client controls.
+        </p>
         <p class="mt-3 text-sm text-neutral-500 group-hover:translate-x-0.5 transition">View case →</p>
       </a>
 
-      <a href="#" class="group rounded-2xl border p-5 transition hover:-translate-y-0.5 border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/60">
+      <a href="#" class="group rounded-2xl border p-5 transition hover:-translate-y-1 hover:shadow-md hover:shadow-black/5 dark:hover:shadow-white/5 border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/60">
         <div class="flex items-center justify-between">
           <h3 class="font-semibold">Streaming Toolkit</h3>
           <span class="text-xs rounded-full border px-2 py-0.5 border-neutral-300 dark:border-neutral-700">Next.js</span>
         </div>
-        <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300">OBS scene switcher + media triggers with a South Park themed UI.</p>
+        <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300">
+          OBS scene switcher + media triggers with a South Park themed UI.
+        </p>
         <p class="mt-3 text-sm text-neutral-500 group-hover:translate-x-0.5 transition">View case →</p>
       </a>
     </div>
   </section>
 
   <!-- Experience -->
-  <section id="experience" class="mx-auto max-w-6xl px-6 mt-16">
+  <section id="experience" class="mx-auto max-w-6xl px-6 mt-24">
     <h2 class="text-2xl font-bold">Experience</h2>
     <ol class="mt-6 space-y-6">
       <li class="rounded-2xl border p-5 border-neutral-200 dark:border-neutral-800">
@@ -116,12 +144,12 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="mx-auto max-w-6xl px-6 mt-16 mb-24">
-    <div class="rounded-2xl border p-6 sm:p-8 border-neutral-200 dark:border-neutral-800">
+  <section id="contact" class="mx-auto max-w-6xl px-6 mt-24 mb-24">
+    <div class="rounded-2xl border p-6 sm:p-8 bg-neutral-50 dark:bg-neutral-900/40 border-neutral-200 dark:border-neutral-800">
       <h2 class="text-2xl font-bold">Let’s build something</h2>
       <p class="mt-2 text-neutral-600 dark:text-neutral-300">Available for internships, freelance projects, and collaborations.</p>
       <div class="mt-4 flex flex-wrap gap-3">
-        <a href="mailto:hello@finnvanhullebusch.me" class="rounded-xl bg-black text-white dark:bg-white dark:text-black px-4 py-2 text-sm font-medium hover:opacity-90">Email me</a>
+        <a data-mail class="rounded-xl bg-black text-white dark:bg-white dark:text-black px-4 py-2 text-sm font-medium hover:opacity-90">Email me</a>
         <a href="https://www.linkedin.com/" class="rounded-xl border px-4 py-2 text-sm font-medium border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800">LinkedIn</a>
         <a href="https://github.com/FinnVHH" class="rounded-xl border px-4 py-2 text-sm font-medium border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800">GitHub</a>
       </div>
@@ -136,12 +164,21 @@
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear()
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // theme toggle
     document.getElementById('themeBtn').onclick = () => {
-      const c = document.documentElement.classList
-      c.toggle('dark')
-      localStorage.setItem('theme', c.contains('dark') ? 'dark' : 'light')
-    }
+      const c = document.documentElement.classList;
+      c.toggle('dark');
+      localStorage.setItem('theme', c.contains('dark') ? 'dark' : 'light');
+    };
+
+    // simple email obfuscation
+    const u='hello', d='finnvanhullebusch.me';
+    document.querySelectorAll('[data-mail]').forEach(a=>{
+      a.href='mailto:'+u+'@'+d; a.textContent=u+'@'+d;
+    });
   </script>
 </body>
 </html>
