@@ -1,0 +1,5 @@
+# keep built CSS; ignore everything else that’s safe
+node_modules/
+npm-debug.log*
+.DS_Store
+dist/
