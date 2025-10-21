@@ -1,360 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aged Plague Doctor Mask - Full Costume</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
-
-body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Cinzel', serif;
-  background: linear-gradient(125deg, #5a4436, #7a665a, #4b7670, #5a405a);
-  background-size: 400% 400%;
-  animation: mysticShift 18s ease-in-out infinite;
-  overflow: hidden;
-	position:relative;
-}
-
-@keyframes mysticShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.fog-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Allows clicks to pass through */
-    overflow: hidden;
-  }
-
-  /* Common fog layer style */
-  .fog {
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(220,220,220,0.15) 0%, rgba(220,220,220,0) 70%);
-    animation: drift linear infinite;
-  }
-
-  /* Individual layers with different speed, opacity, scale, and delay */
-  .fog:nth-child(1) {
-    animation-duration: 120s;
-    opacity: 0.75;
-    transform: scale(1);
-  }
-
-  .fog:nth-child(2) {
-    animation-duration: 150s;
-    opacity: 0.5;
-    transform: scale(1.2);
-    animation-delay: 30s;
-  }
-
-  .fog:nth-child(3) {
-    animation-duration: 180s;
-    opacity: 0.65;
-    transform: scale(1.5);
-    animation-delay: 60s;
-  }
-
-  .fog:nth-child(4) {
-    animation-duration: 200s;
-    opacity: 0.1;
-    transform: scale(2);
-    animation-delay: 90s;
-  }
-
-  @keyframes drift {
-    0% {
-      transform: translate(-25%, -25%) rotate(0deg);
-    }
-    100% {
-      transform: translate(-10%, -10%) rotate(360deg);
-    }
-  }
-
-/* Mask base (UNCHANGED) */
-.mask {
-  position: relative;
-  width: 210px;
-  height: 250px;
-  background: radial-gradient(circle at 40% 35%, #f4e3c0 0%, #d9c297 65%, #b99f7c 100%);
-  border-radius: 60% 60% 80% 80% / 50% 50% 100% 100%;
-  box-shadow:
-    inset -12px -12px 30px rgba(0,0,0,0.5),
-    inset 8px 8px 25px rgba(255,255,255,0.08),
-    0 0 40px rgba(0,0,0,0.8),
-    0 12px 60px rgba(0,0,0,0.9);
-  z-index: 2;
-}
-
-/* Neck */
-	.neck{
-		 clip-path: polygon(50% 74%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-		background: linear-gradient(to bottom, #0d0a08 0%, #1c1510 90%);
-		position:absolute; 
-		bottom:-15px;
-		height:100px;
-		width:175px;
-			z-index:-1;
-		left:50%;
-		transform: translateX(-50%); 
-	}
-.costume-top {
-  position: absolute;
-  top: 245px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 330px;
-  height: 125px;
-  background: linear-gradient(to bottom, #0d0a08 0%, #1c1510 90%);
-  border-radius: 40% 40% 60% 60%;
-  box-shadow:
-    inset 0 -5px 15px rgba(0,0,0,0.6),
-    inset 0 3px 8px rgba(255,255,255,0.05),
-    0 5px 20px rgba(0,0,0,0.7);
-  z-index: 2;
-}
-
-/* Costume under mask */
-.costume {
-  position: absolute;
-  top: 285px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 260px;
-  height: 280px;
-  background: linear-gradient(to bottom, #0d0a08 0%, #1c1510 90%);
-  border-radius: 0 0 50% 50% / 0 0 60% 60%;
-  box-shadow:
-    inset 0 -10px 30px rgba(0,0,0,0.7),
-    inset 0 5px 15px rgba(255,255,255,0.05),
-    0 10px 40px rgba(0,0,0,0.9);
-  overflow: hidden;
-  z-index: 1;
-}
-
-/* Arms */
-.arm {
-  position: absolute;
-  top: 285px;
-  width: 80px;
-  height: 300px;
-  background: linear-gradient(to bottom, #0d0a08 0%, #1c1510 90%);
-  border-radius: 25px;
-  box-shadow:
-    inset 0 -5px 15px rgba(0,0,0,0.6),
-    inset 0 3px 8px rgba(255,255,255,0.05),
-    0 5px 20px rgba(0,0,0,0.7);
-  z-index: 1;
-}
-
-/* Left arm */
-.arm.left { left: -40%; transform: rotate(15deg); }
-
-/* Right arm */
-.arm.right { right: -40%; transform: rotate(-15deg); }
-
-/* The rest (Hat, Eyes, Beak) remain exactly as before */
-
-/* Hat */
-#hat {
-  position: absolute;
-  left: 50%;
-  top: -37%;
-  transform: translateX(-50%);
-  height: 50%;
-  width: 100%;
-  border-radius: 45px 45px 0 0;
-  background: linear-gradient(to bottom, #000, #1b120b 85%);
-  box-shadow:
-    inset 0 0 25px rgba(255,255,255,0.05),
-    0 10px 35px rgba(0,0,0,0.8);
-  z-index: 3;
-  overflow: visible;
-}
-
-#hat::before,
-#hat::after {
-  content: '';
-  position: absolute;
-  bottom: -25px;
-  width: 170%;
-  height: 90px;
-  background: linear-gradient(to bottom, #000, #1b120b 80%);
-  border-radius: 50% / 80%;
-  left: 50%;
-  transform: translateX(-50%) perspective(500px) rotateX(25deg);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.75);
-  z-index: -1;
-}
-#hat::before { clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%); }
-#hat::after { transform: translateX(-50%) perspective(500px) rotateX(25deg) rotateZ(3deg); clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%); }
-
-#hat .band {
-  position: absolute;
-  bottom: 17px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 10px;
-  background: linear-gradient(to right, #5c4033, #2d1b0f);
-  border-radius: 3px;
-  box-shadow: inset 0 0 6px rgba(255,215,0,0.5),
-              0 3px 10px rgba(0,0,0,0.5);
-}
-
-/* Eye goggles */
-.eye {
-  position: absolute;
-  top: 60px;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #888 0%, #111 95%);
-  border: 4px solid #c4c4c4;
-  box-shadow:
-    inset 0 0 25px #000,
-    0 0 15px rgba(255,255,255,0.2),
-    0 0 20px rgba(0,0,0,0.8),
-    0 0 0 rgba(255,255,255,0);
-  z-index: 4;
-  animation: eyeGlow 2.5s ease-in-out infinite alternate;
-}
-.eye.left { left: 25px; }
-.eye.right { right: 25px; }
-
-@keyframes eyeGlow {
-  0% { box-shadow: inset 0 0 20px #000, 0 0 10px rgba(255,255,255,0.2), 0 0 20px rgba(0,0,0,0.8), 0 0 12px rgba(255,255,255,0.35); }
-  50% { box-shadow: inset 0 0 25px #000, 0 0 15px rgba(255,255,255,0.3), 0 0 25px rgba(0,0,0,0.85), 0 0 20px rgba(255,255,255,0.45); }
-  100% { box-shadow: inset 0 0 20px #000, 0 0 10px rgba(255,255,255,0.2), 0 0 20px rgba(0,0,0,0.8), 0 0 12px rgba(255,255,255,0.35); }
-}
-
-/* Beak */
-.beak {
-  position: absolute;
-  top: 115px;
-  left: 50%;
-  transform: translateX(-50%) rotateX(10deg);
-  width: 110px;
-  height: 220px;
-  background: linear-gradient(to bottom, #f2dfb5, #c9aa7f 75%, #a68461 100%);
-  border-radius: 60% 60% 20% 20% / 30% 30% 90% 90%;
-  box-shadow:
-    inset -6px -8px 25px rgba(0,0,0,0.5),
-    inset 3px 3px 12px rgba(255,255,255,0.15),
-    0 10px 40px rgba(0,0,0,0.85);
-  clip-path: polygon(50% 0%, 90% 15%, 85% 80%, 75% 95%, 50% 100%, 25% 95%, 15% 80%, 10% 15%);
-  z-index: 3;
-  overflow: hidden;
-}
-.beak::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    100deg,
-    rgba(255,255,255,0.03) 0px,
-    rgba(255,255,255,0.03) 1px,
-    transparent 2px,
-    transparent 6px
-  );
-  mix-blend-mode: overlay;
-}
-.beak::after {
-  content: '';
-  position: absolute;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 85%;
-  background: rgba(80,60,40,0.7);
-  border-radius: 2px;
-  box-shadow: 0 0 4px rgba(0,0,0,0.6);
-  opacity: 0.85;
-}
-.stitches {
-  position: absolute;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 12px;
-  height: 85%;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 7px,
-    #4b3625 7px,
-    #4b3625 10px,
-    transparent 10px
-  );
-  opacity: 0.95;
-}
-.beak-tip {
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 45%;
-  height: 15px;
-  background: rgba(0,0,0,0.35);
-  border-radius: 50%;
-  filter: blur(2px);
-}
-.filigree {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(255,215,0,0.12) 2px, transparent 3px),
-    radial-gradient(circle at 80% 40%, rgba(255,215,0,0.08) 3px, transparent 4px);
-  mix-blend-mode: overlay;
-  filter: blur(0.5px);
-  z-index: 5;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Truths, One Lie: FinnVH editie</title>
+    <link rel="stylesheet" href="Opmaak.css">
 </head>
 <body>
-	 <div class="fog-container">
-    <div class="fog"></div>
-    <div class="fog"></div>
-    <div class="fog"></div>
-    <div class="fog"></div>
-  </div>
-  <div class="mask">
-    <div id="hat">
-      <div class="band"></div>
+    <div class="container">
+        <h1>Two Truths, One Lie: Finn Van Hullebusch editie</h1>
+        <p>Deze website heb ik gemaakt voor jullie een challenge te geven om te raden wat er echt waar is of niet waar is over mijn persoonlijk leven/gebeurtenissen.</p>
+        <nav style="margin-bottom: 24px;">
+            <strong>Inhoudsopgave:</strong>
+            <ul>
+                <li><a href="#verhaal1">Verhaal 1</a></li>
+                <li><a href="#verhaal2">Verhaal 2</a></li>
+                <li><a href="#verhaal3">Verhaal 3</a></li>
+                <li><a href="#verhaal4">Verhaal 4</a></li>
+                <li><a href="#besluit">Besluit & Stemmen</a></li>
+            </ul>
+        </nav>
+        <hr>
+        <h2 id="verhaal1">Verhaal 1: Gebroken Glazen deur.</h2>
+        <p>Jaren geleden had ik in mijn tuin een verrassingsfeest voor mijn moeder (Joke). <br> Toen destijds kon ik niet goed tegen suiker en daardoor werd ik heel actief. Ik had wat ruzie gekregen met een van mijn neven. <br> Ik stond tegen een van mijn tuindeuren en schopte er uiteindelijk tegen. Dit was niet slim, want mijn voet zat door het raam en het raam was dus kapot. <br> Gelukkig dacht de verzekering dat dit een ongeluk was en hebben we een nieuwe gratis deur gekregen dankzij mij.</p>
+        <hr>
+        <h2 id="verhaal2">Verhaal 2: De verloren portemonnee</h2>
+        <p>Een paar jaar geleden was ik met mijn familie op vakantie in Frankrijk. <br> Op een dag gingen we naar een drukke markt om wat souvenirs te kopen. <br> Terwijl ik aan het rondkijken was, merkte ik plots dat mijn portemonnee verdwenen was. <br> Ik raakte in paniek, want al mijn zakgeld zat erin. <br> Gelukkig vond een vriendelijke marktkramer mijn portemonnee terug en bracht hem naar ons terug, met alles er nog in. <br> Sindsdien let ik altijd extra goed op mijn spullen als ik op reis ben.</p>
+        <hr>
+        <h2 id="verhaal3">Verhaal 3: Heely schoenen</h2>
+        <p>Jaren geleden had ik een paar Heely schoenen gekocht, dit zijn schoenen met een wieltje in de hak. <br> Ik vond het geweldig om ermee te rijden, en soms liet ik zelfs mijn hond mij voortrekken terwijl ik de Heelys aanhad. <br> Maar op een dag ging het mis. <br> Terwijl ik aan het rijden was, viel ik en landde met mijn gezicht op de grond. <br> Ik had een grote schaafwond op mijn gezicht en moest naar de dokter. <br> Gelukkig was het niet ernstig, maar ik heb nooit meer Heely schoenen gedragen.</p>
+        <hr>
+        <h2 id="verhaal4">Verhaal 4: De onverwachte zwempartij</h2>
+        <p>Toen ik jonger was, gingen we vaak wandelen in het bos vlakbij ons huis. <br> Op een warme zomerdag besloot ik samen met mijn broer een nieuwe route te proberen. <br> We kwamen bij een kleine vijver en ik dacht dat het ondiep was. <br> Zonder na te denken sprong ik erin, maar het bleek veel dieper dan verwacht! <br> Ik was helemaal nat, maar gelukkig konden we er samen om lachen en zijn we druipend naar huis teruggekeerd. <br> Sindsdien kijk ik altijd eerst goed voor ik ergens inspring.</p>
+        <hr>
+        <h2 id="besluit">Besluit & Stemmen</h2>
+        <p>Hieronder vind je een overzicht van de verhalen, genummerd zonder titels. Kies het nummer waarvan jij denkt dat het niet waar is:</p>
+        <ol style="padding-left: 24px;">
+            <li>Verhaal 1</li>
+            <li>Verhaal 2</li>
+            <li>Verhaal 3</li>
+            <li>Verhaal 4</li>
+        </ol>
     </div>
-    <div class="filigree"></div>
-    <div class="eye left"></div>
-    <div class="eye right"></div>
-    <div class="beak">
-      <div class="stitches"></div>
-      <div class="beak-tip"></div>
-    </div>
-    <!-- Neck -->
-    <div class="neck"></div>
-		<div class="costume-top"></div>
-    <!-- Costume -->
-    <div class="costume"></div>
-    <!-- Arms -->
-    <div class="arm left"></div>
-    <div class="arm right"></div>
-  </div>
-	
 </body>
-	
 </html>
