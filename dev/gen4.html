@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEN4 - Four Genres. One Night.</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f1a;
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #ff6a00, #ff2fd4, #2aa5ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #ff6a00, #ff2fd4, #2aa5ff);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #ff2fd4;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #0b0f1a, #0b0f1a 70%, #2aa5ff);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            margin: 15px 0;
+        }
+
+        .hero .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        #info {
+            display: none;
+            margin-top: 30px;
+            text-align: left;
+            max-width: 800px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            background-color: #1a1a1a;
+        }
+
+        tr:hover {
+            background-color: #2a2a2a;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="gradient-text">GEN4</h1>
+        <p>Four Genres • One Night</p>
+        <div class="buttons">
+            <button class="button" onclick="showInfo()">Info</button>
+        </div>
+
+        <div id="info" style="display: none; margin-top: 30px; text-align: left; max-width: 800px;">
+            <h2>💰 GEN4 — Financieel Overzicht (Aangepast)</h2>
+            <h3>🎟️ Inkomprijzen</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Prijs</th>
+                        <th>Opmerking</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Early Bird</td>
+                        <td>€6</td>
+                        <td>beperkt aantal</td>
+                    </tr>
+                    <tr>
+                        <td>Regular</td>
+                        <td>€8</td>
+                        <td>standaard prijs</td>
+                    </tr>
+                    <tr>
+                        <td>Deurprijs</td>
+                        <td>€10</td>
+                        <td>aan de kassa</td>
+                    </tr>
+                    <tr>
+                        <td>Gemiddelde inkom</td>
+                        <td>≈ €8</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>🧾 Vaste kosten (onafhankelijk van opkomst)</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Categorie</th>
+                        <th>Kost (€)</th>
+                        <th>Opmerking</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DJ’s / artiesten</td>
+                        <td>800</td>
+                        <td>lokale line-up</td>
+                    </tr>
+                    <tr>
+                        <td>Promotie (drukwerk + online)</td>
+                        <td>100</td>
+                        <td>affiches, social media</td>
+                    </tr>
+                    <tr>
+                        <td>Licht & geluid extra</td>
+                        <td>200</td>
+                        <td>extra rook/licht effecten</td>
+                    </tr>
+                    <tr>
+                        <td>Vergunning + verzekering</td>
+                        <td>50</td>
+                        <td>via gemeente</td>
+                    </tr>
+                    <tr>
+                        <td>Decoratie + polsbandjes</td>
+                        <td>100</td>
+                        <td>thema & sfeer</td>
+                    </tr>
+                    <tr>
+                        <td>Onvoorzien / marge</td>
+                        <td>150</td>
+                        <td>veiligheid</td>
+                    </tr>
+                    <tr>
+                        <td>Totaal vaste kosten</td>
+                        <td>€1.400</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>🍺 Variabele kosten (barverbruik achteraf)</h3>
+            <p>Je rekent pas achteraf af met de drankleverancier, dus je betaalt enkel wat effectief verbruikt is.</p>
+            <ul>
+                <li>Gemiddelde verkoopprijs: €2,50 per consumptie</li>
+                <li>Gemiddelde marge: +60%</li>
+                <li>Netto barwinst = €1,50 per consumptie</li>
+                <li>Gemiddelde consumptie: 6 drankjes per persoon</li>
+                <li>→ Barwinst per persoon = €9,00</li>
+            </ul>
+
+            <h3>📊 Inkomsten en winst per opkomstniveau</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Bezoekers</th>
+                        <th>Inkom (€8 p.p.)</th>
+                        <th>Barwinst (€9 p.p.)</th>
+                        <th>Totale Inkomsten</th>
+                        <th>Totale Kosten (€1.400)</th>
+                        <th>Winst / Verlies</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>100</td>
+                        <td>€800</td>
+                        <td>€900</td>
+                        <td>€1.700</td>
+                        <td>€1.400</td>
+                        <td>✅ +€300</td>
+                    </tr>
+                    <tr>
+                        <td>150</td>
+                        <td>€1.200</td>
+                        <td>€1.350</td>
+                        <td>€2.550</td>
+                        <td>€1.400</td>
+                        <td>✅ +€1.150</td>
+                    </tr>
+                    <tr>
+                        <td>200</td>
+                        <td>€1.600</td>
+                        <td>€1.800</td>
+                        <td>€3.400</td>
+                        <td>€1.400</td>
+                        <td>✅ +€2.000</td>
+                    </tr>
+                    <tr>
+                        <td>300</td>
+                        <td>€2.400</td>
+                        <td>€2.700</td>
+                        <td>€5.100</td>
+                        <td>€1.400</td>
+                        <td>✅ +€3.700</td>
+                    </tr>
+                    <tr>
+                        <td>400</td>
+                        <td>€3.200</td>
+                        <td>€3.600</td>
+                        <td>€6.800</td>
+                        <td>€1.400</td>
+                        <td>✅ +€5.400</td>
+                    </tr>
+                    <tr>
+                        <td>500</td>
+                        <td>€4.000</td>
+                        <td>€4.500</td>
+                        <td>€8.500</td>
+                        <td>€1.400</td>
+                        <td>✅ +€7.100</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>💡 Analyse</h3>
+            <ul>
+                <li>Break-even: ± 90 bezoekers</li>
+                <li>Vanaf 150 bezoekers zit je al stevig in de winst.</li>
+                <li>Een volle zaal (500 man) levert tot €7.000 netto winst op.</li>
+                <li>Omdat je drank achteraf betaalt, is er geen financieel risico bij lagere opkomst.</li>
+                <li>Met 200 bezoekers draai je al ruim winst.</li>
+            </ul>
+
+            <h3>🧩 Tips om marge te maximaliseren</h3>
+            <ul>
+                <li>Drankprijzen afronden op €2,70 / €3,00 — hogere marge, amper merkbaar voor bezoekers.</li>
+                <li>Hou shotjes of cocktails als premiumproduct (hoge marge).</li>
+                <li>Kleine sponsordeal (lokale café, DJ school, of frituur): €200–€300 = extra buffer.</li>
+                <li>Gebruik SumUp data om na afloop omzet per uur te bekijken → handig voor volgende editie.</li>
+            </ul>
+        </div>
+
+        <script>
+            function showInfo() {
+                const info = document.getElementById('info');
+                info.style.display = info.style.display === 'none' ? 'block' : 'none';
+            }
+        </script>
+    </section>
+</body>
+</html>
