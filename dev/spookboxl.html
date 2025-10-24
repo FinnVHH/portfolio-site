@@ -1,1 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SPOOK — Showcase</title>
+<style>
+  :root{
+    --bg-0:#050509;
+    --bg-1:#0b0b12;
+    --txt:#e8e8f0;
+    --muted:#9aa0a6;
+    --accent:#a855f7; /* purple */
+    --accent-2:#22d3ee; /* cyan */
+  }
 
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+    color:var(--txt);
+    background:
+      radial-gradient(1200px 600px at 50% -10%, #1a1030 0%, transparent 60%),
+      radial-gradient(800px 400px at 80% 110%, #072530 0%, transparent 70%),
+      linear-gradient(180deg, var(--bg-1), var(--bg-0));
+    overflow:hidden;
+  }
+
+  /* Layout */
+  .container{
+    position:relative;
+    height:100%;
+    width:100%;
+    padding: clamp(20px, 4vw, 40px);
+    display:grid;
+    place-items:center;
+  }
+
+  /* HERO (welcome + button) */
+  .hero{
+    max-width:min(800px, 92vw);
+    text-align:center;
+    backdrop-filter: blur(6px);
+    background:rgba(255,255,255,0.02);
+    border:1px solid rgba(255,255,255,0.06);
+    padding: clamp(24px, 6vw, 48px);
+    border-radius:24px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.03);
+    transition: transform .7s cubic-bezier(.22,1,.36,1), opacity .6s ease, filter .6s ease;
+  }
+  .hero h1{
+    font-weight:800;
+    line-height:1.05;
+    font-size: clamp(28px, 4.5vw, 44px);
+    letter-spacing:.2px;
+    margin-bottom: .55em;
+    background: linear-gradient(90deg, #fff, #bfbfe8 40%, #ffffff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p{
+    color:var(--muted);
+    font-size: clamp(14px, 1.8vw, 18px);
+    line-height:1.6;
+    margin: 0 auto 1.5rem;
+    max-width: 60ch;
+  }
+
+  .actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
+
+  .btn{
+    --ring: 0 0 0 0 rgba(168,85,247,.0);
+    position:relative;
+    border:none;
+    border-radius:14px;
+    padding:14px 22px;
+    font-weight:700;
+    letter-spacing:.2px;
+    color:#0b0b12;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    cursor:pointer;
+    box-shadow: var(--ring), 0 10px 30px rgba(34,211,238,.18);
+    transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+  }
+  .btn:hover{ transform: translateY(-1px); filter:saturate(1.1); }
+  .btn:active{ transform: translateY(0); }
+  .btn:focus-visible{ outline:none; box-shadow: 0 0 0 4px rgba(168,85,247,.35), 0 10px 30px rgba(34,211,238,.2); }
+
+  /* Exit animation for hero */
+  .hero.out{
+    transform: translateY(-60px) scale(.98);
+    opacity:0;
+    filter: blur(4px);
+    pointer-events:none;
+  }
+
+  /* FLYER reveal */
+  .flyer-wrap{
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    opacity:0;
+    transform: scale(.96);
+    transition: opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1);
+    pointer-events:none;
+  }
+  .flyer-wrap.show{
+    opacity:1;
+    transform: scale(1);
+    pointer-events:auto;
+  }
+
+  .flyer{
+    width: min(900px, 92vw);
+    aspect-ratio: 3/4; /* fallback space; replaced by real image ratio */
+    border-radius: 18px;
+    background: linear-gradient(180deg, #111, #0c0c12);
+    border:1px solid rgba(255,255,255,.06);
+    box-shadow:
+      0 40px 120px rgba(0,0,0,.6),
+      0 0 0 1px rgba(255,255,255,.03) inset;
+    overflow:hidden;
+    position:relative;
+  }
+
+  .flyer img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  /* Soft vignette */
+  .flyer:after{
+    content:"";
+    position:absolute; inset:0;
+    pointer-events:none;
+    background: radial-gradient(120% 120% at 50% 60%, rgba(0,0,0,0) 0%, rgba(0,0,0,.25) 55%, rgba(0,0,0,.55) 100%);
+    mix-blend-mode:multiply;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .hero, .flyer-wrap{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <!-- WELCOME / CTA -->
+    <section class="hero" id="hero" aria-live="polite">
+      <h1>Welcome — Dare to see our shocking product?</h1>
+      <p>
+        This preview contains intense visuals. Click <em>Continue</em> to proceed to the showcase flyer.
+      </p>
+      <div class="actions">
+        <button class="btn" id="continueBtn" aria-controls="flyer" aria-expanded="false">
+          Continue
+        </button>
+      </div>
+    </section>
+
+    <!-- FLYER TARGET -->
+    <section class="flyer-wrap" id="flyerWrap" aria-hidden="true">
+      <div class="flyer" id="flyer">
+        <!-- Replace src if your file is named differently -->
+        <img src="flyer.png" alt="Showcase flyer" />
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const btn   = document.getElementById('continueBtn');
+    const hero  = document.getElementById('hero');
+    const wrap  = document.getElementById('flyerWrap');
+
+    btn.addEventListener('click', () => {
+      // Animate hero away
+      hero.classList.add('out');
+
+      // After the hero exits (~700ms), reveal flyer
+      setTimeout(() => {
+        wrap.classList.add('show');
+        btn.setAttribute('aria-expanded', 'true');
+        wrap.setAttribute('aria-hidden', 'false');
+      }, 720);
+    });
+
+    // Optional: allow Enter/Space to trigger on focus
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  </script>
+</body>
+</html>
